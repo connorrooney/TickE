@@ -50,7 +50,7 @@ body {
 .mainCont {
     display: grid;
     grid-template-columns: 1.4fr 0.6fr ;
-    grid-template-rows: 0.9fr 0.9fr 0.9fr;
+    grid-template-rows: 270px 0.9fr 0.9fr;
     grid-template-areas: "mainBanner eventsNear" "topConcerts eventsNear" "almostGone eventsNear"
 }
 
@@ -179,6 +179,7 @@ body {
 
     .topConcertsItems {
         display: flex;
+        flex-wrap: wrap;
     }
 
     .displayItem{

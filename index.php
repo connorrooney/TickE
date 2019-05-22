@@ -32,7 +32,6 @@
     <div class="eventsNear">
         <div class="eventsNearTitle"><i class="fas fa-map-marker-alt"></i> Events near, <span>Manchester</span></div>
         <?php
-        $location = "Manchester";
             db();
             global $link;
             $query = "SELECT * FROM events limit 4";
@@ -56,7 +55,7 @@
             </div>
             <div class="eventsNearMore">
                 <center><span class="eventsNearName"><?php echo $name;?></span></center>
-                <center><a href="PHP HERE"><button class="moreInfo">More Info <i class="fas fa-chevron-right"></i></button></a></center>
+                <center><a href="deatil.php?id=<?php echo $id?>"><button class="moreInfo">More Info <i class="fas fa-chevron-right"></i></button></a></center>
             </div>
         </div>
         <?php
@@ -69,25 +68,36 @@
         <h1>Top Concerts<hr></h1>
     <div class="topConcertsItems">
 
-        <div class="displayItem">
-            <img src="img/eventsNear/exDisplay/injuryreserve.jpg"><br>
-            <div class="displayText">
-                <p class="displayItemDate"><b>OCT</b><br>12<br>19:00</p>
-                <span class="displayItemTitle">Injury Reserve</span><br>
-                <span class="displayItemLocation">Manchester O2 Arena, Manchester</span><br>
-                <span class="displayItemLink"><a href="SOME MORE PHP">Book Now</a></span>
-            </div>
-        </div>
+    <?php 
+        db();
+        global $link;
+        $query2 = "SELECT * FROM events";
+        $result2 = mysqli_query($link, $query2);
+        if(mysqli_num_rows($result2) > 0) {
+            while ($row = mysqli_fetch_array($result2)) {
+                $id = $row['id'];
+                $name = $row['name'];
+                $month = $row['month'];
+                $day = $row['day'];
+                $time = $row['time'];
+                $location = $row['location'];
+                $address = $row['address'];
+                $img = $row['img'];
+    ?>
 
         <div class="displayItem">
-            <img src="img/eventsNear/exDisplay/injuryreserve.jpg"><br>
+            <img src="<?php echo $img;?>"><br>
             <div class="displayText">
-                <p class="displayItemDate"><b>OCT</b><br>12<br>19:00</p>
-                <span class="displayItemTitle">Injury Reserve</span><br>
-                <span class="displayItemLocation">Manchester O2 Arena, Manchester</span><br>
-                <span class="displayItemLink"><a href="SOME MORE PHP">Book Now</a></span>
+                <p class="displayItemDate"><b><?php echo $month;?></b><br><?php echo $day;?><br><?php echo $time; ?></p>
+                <span class="displayItemTitle"><?php echo $name;?></span><br>
+                <span class="displayItemLocation"><?php echo $address?>, <?php echo $location;?></span><br>
+                <span class="displayItemLink"><a href="detail.php?id=<?php echo $id;?>">Book Now</a></span>
             </div>
         </div>
+    <?php
+            }
+        }
+    ?>
 
     </div>
     </div>
