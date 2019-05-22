@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css?family=Overpass:100,200,300,400,500,600,700,800,900|Raleway:100,200,300,400,500,600,700,800,900&display=swap');
+
+body {
+    margin: 0;
+    background: #e5e5e5;
+}
+.navBar {
+    background: #001764;
+    color: #ffffff;
+    width: 100vw;
+    height: 100px;
+    font-family: 'Overpass', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+    .logo {
+        margin: 6px;
+    }
+    
+    .navItem {
+        text-decoration: none;
+        color: #ffffff;
+        padding-right: 40px;
+        font-size: 24px;
+    }
+
+    .navItem:hover {
+        border-bottom: 3px solid #ffffff;
+    }
+
+    .searchBar {
+        font-size: 24px;
+        font-family: 'Raleway', sans-serif;
+        text-decoration: underline;
+    }
+
+    .loginButton {
+        font-family: 'Raleway', sans-serif;
+        font-size: 22px;
+        color: #ffffff;
+        border: 3px solid #ffffff;
+        border-radius: 10px;
+        background: none;
+        margin: 30px;
+        height: 40px;
+        width: 100px;
+    }
+
+.mainCont {
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr ;
+    grid-template-rows: 0.9fr 0.9fr 0.9fr;
+    grid-template-areas: "mainBanner eventsNear" "topConcerts eventsNear" "almostGone eventsNear"
+}
+
+.mainBanner {
+    grid-area: mainBanner;
+    background: linear-gradient(to left, #E5E5E5 1.15%, rgba(255, 255, 255, 0) 42.17%), url(../img/fyeNight.png);
+    background: -webkit-linear-gradient(to left, #E5E5E5 1.15%, rgba(255, 255, 255, 0) 42.17%), url(../img/fyeNight.png);
+    height: 260px;
+    color: #ffffff;
+    padding-left: 43px;
+    display: grid;
+    align-content: center;
+}
+    .mainBanner h2 {
+        font-family: 'Overpass', sans-serif;
+        font-weight: 800;
+        font-size: 69px;
+        text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+        margin: 0;
+    }
+
+    .mainBanner h4 {
+        font-family: 'Raleway', sans-serif;
+        font-style: italic;
+        font-weight: 300;
+        font-size: 40px;
+        text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+        text-decoration: underline;
+        margin: 0;
+    }
+
+.eventsNear {
+    grid-area: eventsNear;
+    margin: 20px;
+    height: 740px;
+    background: #ffffff;
+    border-radius: 20px;
+    font-family: 'Raleway', sans-serif;
+}
+     .eventsNearTitle {
+        font-size: 36px;
+        width: 100%;
+        text-align: center;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .highlighted {
+        font-weight: 700;
+    }
+
+    .eventsNearItem {
+        display: grid;
+        grid-template-columns: 1fr 0.5fr 1.5fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "pic date more";
+        border-radius: 10px;
+        background: #e5e5e5;
+        width: 90%;
+        margin: 7px auto;
+        max-height: 130px;
+        
+    }
+        .eventsNearItem img {
+            border-right: 4px solid #ffffff;
+            border-radius: 10px 0px 0px 10px;
+            height: 130px;
+        }
+
+        .eventsNearDate {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            text-align: center;
+            /* align-self: center; */
+            font-size: 30px;
+            line-height: 1;
+            font-family: 'Overpass', sans-serif;
+        }
+            .dateBold {
+                font-weight: 900;
+            } 
+
+            .dateThin {
+                font-weight: 200;
+            }
+
+        .eventsNearMore{
+            display: grid;
+            align-content: center;
+            justify-content: center;
+            font-size: 34px;
+        }
+            .moreInfo {
+                background: linear-gradient(to right, #fcc200, #ffad00);
+                background: -webkit-linear-gradient(to right, #fcc200, #ffad00);
+                border: none;
+                border-radius: 10px;
+                font-size: 28px;
+                height: 45px;
+                margin-top: 15px;
+            }
+
+            .moreInfo:hover {
+                background: linear-gradient(to left, #fcc200, #ffad00);
+                background: -webkit-linear-gradient(to left, #fcc200, #ffad00);
+            }
+
+.topConcerts {
+    grid-area: topConcerts;
+    font-family: 'Raleway', sans-serif;
+    font-style: italic;
+}
+    .topConcerts hr {
+        border: none;
+        height: 4px;
+        background: linear-gradient(to right, #000000, #e5e5e5, #e5e5e5);
+    }
+
+    .topConcertsItems {
+        display: flex;
+    }
+
+    .displayItem{
+        position: relative;
+        background: #ffffff;
+        border-radius: 10px;
+        width: 280px;
+        margin: 10px;
+    }
+        .displayText {
+            position: absolute;
+            width: 100%;
+            bottom: 30px;
+        }
+        
+        .displayItemDate {
+            position: absolute;
+            text-align: center;
+            left: 225px;
+            bottom: 28px;
+            font-size: 20px;
+            line-height: 1;
+        }
+        .displayItemTitle {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .displayItemLocation {
+            position: absolute;
+            font-style: normal;
+        }
+
+        .displayItemLink {
+            position: absolute;
+            width: 100%;
+            bottom: -27px;
+            left: 195px;
+            text-decoration: underline;
+        }
+            .displayItemLink a {
+                color: #000000;
+            }
+
+        .displayItem img {
+            position: relative;
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 27%, 0 63%);
+            clip-path: polygon(0 0, 100% 0, 100% 27%, 0 63%);
+            object-fit: cover;
+            height: 200px;
+            width: 280px;
+            border-radius: 10px 10px 0px 0px;
+        }
