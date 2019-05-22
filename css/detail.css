@@ -2,10 +2,20 @@
 
 }
 
+hr {
+    margin: 1px;
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #000000, #ffffff 20%);
+}
+
 .detailsHeader {
     font-family: 'Overpass', sans-serif;
     color: #ffffff;
     position: relative;
+    margin: 0;
+    padding: 0;
+    height: 250px;
 }
 
     .detailsHeader img {
@@ -24,3 +34,103 @@
         margin-left: 35px;
         text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
     }
+
+.mainInfoCont {
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "mainInfo buyTicket";
+    grid-gap: 15px;
+}
+    .mainInfo {
+        grid-area: mainInfo;
+        height: 500px;
+        border-radius: 10px;
+        background: #ffffff;
+        margin-left: 15px;
+        margin-top: -10px;
+        padding: 10px;
+    }
+        .infoTitle {
+            font-family: 'Overpass', sans-serif;
+            font-size: 40px;
+        }
+
+        .mainInfo h2 {
+            font-family: 'Overpass', sans-serif;
+            margin-bottom: 3px;
+            font-size: 36px;
+        }
+
+        .lineup {
+            font-family: 'Overpass', sans-serif;
+            font-size: 32px;
+            font-weight: 300;
+        }
+
+        .aboutEvent {
+            font-family: 'Raleway', sans-serif;
+            font-size: 26px;
+        }
+
+    .buyTicket {
+        grid-area: buyTicket;
+        height: 500px;
+        border-radius: 10px;
+        background: #ffffff;
+        margin-right: 15px;
+        margin-top: -10px;
+        padding: 10px;
+
+        display: grid;
+        justify-content: center;
+    }
+        .buyTicket form {
+            font-family: 'Overpass', sans-serif;
+            font-size: 24px;
+        }
+
+        input[type=text] {
+            width: 350px;
+            height: 40px;
+            padding: 5px;
+            box-sizing: border-box;
+            border: 1px solid #e5e5e5;
+            background: #e5e5e5;
+            font-size: 22px;
+        }
+        
+        input[type=email] {
+            width: 350px;
+            height: 40px;
+            padding: 5px;
+            box-sizing: border-box;
+            border: 1px solid #e5e5e5;
+            background: #e5e5e5;
+            font-size: 22px;
+        }
+
+        select {
+            height: 40px;
+            width: 70px;
+            font-size: 24px;
+        }
+
+        input[type=submit] {
+            width: 150px;
+            height: 60px;
+            background: linear-gradient(to right, #fcc200, #ffad00);
+            background: -webkit-linear-gradient(to right, #fcc200, #ffad00);
+            margin: 0;
+            color: #ffffff;
+            font-size: 30px;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Raleway', sans-serif;
+        }
+    
+        input[type=submit] {
+            background: linear-gradient(to left, #fcc200, #ffad00);
+            background: -webkit-linear-gradient(to left, #fcc200, #ffad00);
+        }
+    

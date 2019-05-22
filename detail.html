@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/detail.css">
+    <title>Tick-e</title>
+</head>
+<body>
+    <div class="navBar">
+        <img src="img/logo.svg" class="logo">
+
+        <a href="PHP HERE" class="navItem"><h2>Concerts</h2></a>
+        <a href="PHP HERE" class="navItem"><h2>Events</h2></a>
+        <a href="PHP HERE" class="navItem"><h2>Festivals</h2></a>
+
+        <span class="searchBar"><i class="fas fa-search"></i> Search Events</span>
+
+        <button class="loginButton">login</button>
+    </div>
+
+    <div class="detailsCont">
+        <div class="detailsHeader">
+            <img src="img/eventsNear/exDisplay/nghtwrk.jpg">
+            <div class="detailsHeaderText">
+                <h1>NghtWrk<br>Open Air - 002</h1>
+            </div>
+        </div>
+    </div>
+    <div class="mainInfoCont">
+        <div class="mainInfo">
+            <div class="mainInfoHeader">
+                <span class="infoTitle"><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;&nbsp;<span>Carriage Shed, City Place, Chester</span></span><br>
+                <span class="infoTitle"><i class="far fa-clock"></i>&nbsp;&nbsp;<span>Saturday, 06 July @ 13:00 - 23:00</span></span>
+            </div>
+            <h2>Line Up<hr></h2>
+            <span class="lineup">Pawsa, Mason Collective, Josh Baker, BRODYR</span>
+
+            <br>
+
+            <h2>About<hr></h2>
+            <span class="aboutEvent">Bringing back our favourite day of last year for it's 2019 edition. Expect a lot of the same, with the creases ironed out a little. Slightly reshaped venue plan, extra production and of course, a bigger bar. </span>
+        </div>
+        <div class="buyTicket">
+            <form>
+                <label>Name:</label><br>
+                <input type="text" name="name">
+                <br>
+                <label>Qty</label><br>
+                <select name="quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <br>
+                <label>Email:</label><br>
+                <input type="email" name="email"><br>
+                <h1>Total: <span name="totalCost">£34.00</span></h1>
+                <center><input type="submit" name="buySubmit"></center>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
