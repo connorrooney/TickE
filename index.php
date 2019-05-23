@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="navBar">
-        <img src="img/logo.svg" class="logo">
+        <a href="index.php"><img src="img/logo.svg" class="logo"></a>
 
         <a href="PHP HERE" class="navItem"><h2>Concerts</h2></a>
         <a href="PHP HERE" class="navItem"><h2>Events</h2></a>
@@ -20,7 +20,7 @@
 
         <span class="searchBar"><i class="fas fa-search"></i> Search Events</span>
 
-        <button class="loginButton">login</button>
+        <a href="login.php"><button class="loginButton">login</button></a>
     </div>
     <div class="mainCont">
 
@@ -34,7 +34,7 @@
         <?php
             db();
             global $link;
-            $query = "SELECT * FROM events limit 4";
+            $query = "SELECT * FROM events WHERE location = 'Manchester' limit 4";
             $result = mysqli_query($link, $query);
             if(mysqli_num_rows($result) > 0) {
                 while($row = mysqli_fetch_array($result)) {
@@ -65,7 +65,7 @@
     </div>
 
     <div class="topConcerts">
-        <h1>Top Concerts<hr></h1>
+        <h1>Whats On<hr></h1>
     <div class="topConcertsItems">
 
     <?php 
@@ -101,6 +101,7 @@
 
     </div>
     </div>
+    
 
     </div>
 </body>
