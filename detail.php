@@ -44,6 +44,12 @@
                         $img = $row['banner'];
                         $price = $row['price'];
                         $lineup = $row['lineup'];
+
+                        function priceUp() {
+                            $option = $_POST['quantity'];
+                            $displayPrice = $price * $option;
+                            return $displayPrice;
+                        }
         ?>
         <div class="detailsHeader">
             <img src="<?php echo $img;?>">
@@ -67,7 +73,7 @@
             <span class="aboutEvent"><?php echo $desc?></span>
         </div>
         <div class="buyTicket">
-            <form action="POST" >
+            <form method="POST" >
                 <label>Name:</label><br>
                 <input type="text" name="name">
                 <br>
@@ -81,7 +87,7 @@
                 <br>
                 <label>Email:</label><br>
                 <input type="email" name="email"><br>
-                <h1>Total: <span name="totalCost">£34.00</span></h1>
+                <h1>Total: <span name="totalCost">£<?php echo priceUp()?></span></h1>
                 <center><input type="submit" name="buySubmit"></center>
             </form>
         </div>

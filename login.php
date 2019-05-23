@@ -25,7 +25,7 @@
     <div class="loginCont">
         <div class="loginForm">
             <img src="img/logosquare.svg">
-            <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]?>">
+            <form method="POST" action="">
                 <label>Username:</label> <br>
                 <input type="text" placeholder="Username" name="loginUsername" required><br>
 
