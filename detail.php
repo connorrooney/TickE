@@ -43,6 +43,7 @@
                         $time = $row['time'];
                         $img = $row['banner'];
                         $price = $row['price'];
+                        $lineup = $row['lineup'];
         ?>
         <div class="detailsHeader">
             <img src="<?php echo $img;?>">
@@ -58,7 +59,7 @@
                 <span class="infoTitle"><i class="far fa-clock"></i>&nbsp;&nbsp;<span><?php echo $day . $month ?> @ <?php echo $time;?></span></span>
             </div>
             <h2>Line Up<hr></h2>
-            <span class="lineup">Pawsa, Mason Collective, Josh Baker, BRODYR</span>
+            <span class="lineup"><?php echo $lineup?></span>
 
             <br>
 

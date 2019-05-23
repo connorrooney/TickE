@@ -55,7 +55,7 @@
             </div>
             <div class="eventsNearMore">
                 <center><span class="eventsNearName"><?php echo $name;?></span></center>
-                <center><a href="deatil.php?id=<?php echo $id?>"><button class="moreInfo">More Info <i class="fas fa-chevron-right"></i></button></a></center>
+                <center><a href="detail.php?id=<?php echo $id?>"><button class="moreInfo">More Info <i class="fas fa-chevron-right"></i></button></a></center>
             </div>
         </div>
         <?php
