@@ -1,3 +1,25 @@
+<?php
+    require_once('connection.php');
+    session_start();
+    db();
+    global $link;
+
+    if($_POST['loginButton']) {
+        $username = mysqli_real_escape_string($link, $_POST['loginUsername']);
+        $passowrd = mysqli_real_escape_string($link, $_POST['loginPassword']);
+
+        $query = "SELECT id FROM users WHERE username = '$username' AND password = '$passowrd'";
+        $result = mysqli_query($link, $query);
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        
+        if(mysqli_num_rows($result) == 1) {
+            $_SESSION['username'] = $username;
+            header("Location: profile.php");
+        } else {
+            $error_msg = "Username or Password is invalid";
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +47,7 @@
     <div class="loginCont">
         <div class="loginForm">
             <img src="img/logosquare.svg">
-            <form method="POST" action="">
+            <form method="POST" action="login.php">
                 <label>Username:</label> <br>
                 <input type="text" placeholder="Username" name="loginUsername" required><br>
 

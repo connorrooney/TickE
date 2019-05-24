@@ -24,7 +24,7 @@ session_start()
         <button class="loginButton">login</button>
     </div>
 
-    <div class="ErrorCont">
+    <div class="errorCont">
         <h1>An Error has Occurred</h1>
         
         <?php
