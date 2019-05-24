@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="navBar">
-        <img src="img/logo.svg" class="logo">
+        <a href="index.php"><img src="img/logo.svg" class="logo"></a>
 
         <a href="PHP HERE" class="navItem"><h2>Concerts</h2></a>
         <a href="PHP HERE" class="navItem"><h2>Events</h2></a>

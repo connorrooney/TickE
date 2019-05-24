@@ -21,7 +21,14 @@
 
                     $newQty = $tQty - 1;
                     if(mysqli_query($link, "UPDATE events SET quant = '$newQty' WHERE id = '$eventId'")) {
-                        header("Location: purchase.php");
+                        $tRow = mysqli_fetch_array($tResult);
+                        $userCredit = $tRow['credit'];
+                        $newCredit = $userCredit - $tPrice;
+                        if(mysqli_query($link, "UPDATE users SET credit = '$newCredit' WHERE username = '$loginSesh'")) {
+                            echo "true";
+                        } else {
+                            echo "false";
+                        }
                     } 
                 }
             }
