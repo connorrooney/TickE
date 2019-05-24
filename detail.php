@@ -1,3 +1,34 @@
+<?php
+    include("session.php");
+    require_once("connection.php");
+    require_once("extFuncs.php");
+    db();
+    global $link;
+
+    if(isset($_GET['id'])) {
+        $eventId = $_GET['id'];
+
+        $tQuery =  "SELECT tickets FROM users WHERE username = '$loginSesh'";
+        $tResult = mysqli_query($link, $tQuery);
+        if(mysqli_num_rows($tResult) == 1) {
+            if($_POST['buySubmit']) {
+                $bQuery = "SELECT * FROM events WHERE id='$eventId'";
+                $bResult = mysqli_query($link, $bQuery);
+                if(mysqli_num_rows($bResult) == 1){
+                    $bRow = mysqli_fetch_array($bResult);
+                    $tPrice = $bRow['price'];
+                    $tQty = $bRow['quant'];
+
+                    $newQty = $tQty - 1;
+                    if(mysqli_query($link, "UPDATE events SET quant = '$newQty' WHERE id = '$eventId'")) {
+                        header("Location: purchase.php");
+                    } 
+                }
+            }
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,12 +75,6 @@
                         $img = $row['banner'];
                         $price = $row['price'];
                         $lineup = $row['lineup'];
-
-                        function priceUp() {
-                            $option = $_POST['quantity'];
-                            $displayPrice = $price * $option;
-                            return $displayPrice;
-                        }
         ?>
         <div class="detailsHeader">
             <img src="<?php echo $img;?>">
@@ -76,18 +101,11 @@
             <form method="POST" >
                 <label>Name:</label><br>
                 <input type="text" name="name">
+                
                 <br>
-                <label>Qty</label><br>
-                <select name="quantity">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-                <br>
-                <label>Email:</label><br>
-                <input type="email" name="email"><br>
-                <h1>Total: <span name="totalCost">£<?php echo priceUp()?></span></h1>
+                <label>Username:</label><br>
+                <input type="text" name="usernameCheck"><br>
+                <h1>Total: <span name="totalCost">£<?php echo $price?></span></h1>
                 <center><input type="submit" name="buySubmit"></center>
             </form>
         </div>
