@@ -8,11 +8,11 @@
     if(isset($_GET['id'])) {
         $eventId = $_GET['id'];
 
-        $tQuery =  "SELECT tickets FROM users WHERE username = '$loginSesh'";
+        $tQuery =  "SELECT * FROM users WHERE username = '$loginSesh'";
         $tResult = mysqli_query($link, $tQuery);
         if(mysqli_num_rows($tResult) == 1) {
             if($_POST['buySubmit']) {
-                $bQuery = "SELECT * FROM events WHERE id='$eventId'";
+                $bQuery = "SELECT * FROM events WHERE id = '$eventId'";
                 $bResult = mysqli_query($link, $bQuery);
                 if(mysqli_num_rows($bResult) == 1){
                     $bRow = mysqli_fetch_array($bResult);
@@ -25,9 +25,10 @@
                         $userCredit = $tRow['credit'];
                         $newCredit = $userCredit - $tPrice;
                         if(mysqli_query($link, "UPDATE users SET credit = '$newCredit' WHERE username = '$loginSesh'")) {
-                            echo "true";
-                        } else {
-                            echo "false";
+                           $array = json_decode($tRow['tickets']);
+                           array_push($array, $eventId);
+                           $json = json_encode($array);
+                           mysqli_query($link, "UPDATE users SET tickets = '$json' WHERE username = '$loginSesh'");
                         }
                     } 
                 }
