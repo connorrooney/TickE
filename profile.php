@@ -4,11 +4,12 @@
     db();
     global $link;
 
-    if($_POST['creditSumbit']) {
-        $cResult = mysqli_query($link, "SELECT credit FROM users WHERE username = '$loginSesh'");
+    if($_POST['creditSubmit']) {
+        $cResult = mysqli_query($link, "SELECT * FROM users WHERE username = '$loginSesh'");
         $cRow = mysqli_fetch_array($cResult);
         $currentCredit = $cRow['credit'];
-        $newCredit = $currentCredit + $_POST['creditAmmount'];
+        $input = $_POST['creditAmmount'];
+        $newCredit = $currentCredit + $input;
         mysqli_query($link, "UPDATE users SET credit = '$newCredit' WHERE username = '$loginSesh'");
     }
 ?>
@@ -31,6 +32,7 @@
         <a href="PHP HERE" class="navItem"><h2>Concerts</h2></a>
         <a href="PHP HERE" class="navItem"><h2>Events</h2></a>
         <a href="PHP HERE" class="navItem"><h2>Festivals</h2></a>
+        <a href="profile.php" class="navItem"><h2>Profile</h2></a>
 
         <span class="searchBar"><i class="fas fa-search"></i> Search Events</span>
 
@@ -80,16 +82,16 @@
         </div>
         <div class="addCredit">
             <center>
-            <h1>Welcome <?php echo $loginSesh;?>
+            <h1>Welcome <?php echo $loginSesh;?></h1>
             <h1>Credit Overview</h1>
-            <h1><i class="far fa-credit-card"></i> £<?php echo $credit;?></h1>
-
-            <form action="" method="POST">
+            <h1><i class="far fa-credit-card"></i> £<?php echo $credit;?> </h1>
+            <form action="profile.php" method="POST">
                 <label>Credit Ammount:</label><br>
                 <input type="number" name="creditAmmount">
                 <br>
                 <br>
                 <input class="moreInfo" type="submit" name="creditSubmit">
+                
             </form>
             </center>
         </div>

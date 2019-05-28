@@ -1,5 +1,5 @@
 <?php
-    include("session.php");
+    // include("session.php");
     require_once("connection.php");
     require_once("extFuncs.php");
     db();
@@ -55,6 +55,7 @@
         <a href="PHP HERE" class="navItem"><h2>Concerts</h2></a>
         <a href="PHP HERE" class="navItem"><h2>Events</h2></a>
         <a href="PHP HERE" class="navItem"><h2>Festivals</h2></a>
+        <a href="profile.php" class="navItem"><h2>Profile</h2></a>
 
         <span class="searchBar"><i class="fas fa-search"></i> Search Events</span>
 
@@ -95,7 +96,7 @@
         <div class="mainInfo">
             <div class="mainInfoHeader">
                 <span class="infoTitle"><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;&nbsp;<span><?php echo $address;?>, <?php echo $location;?></span></span><br>
-                <span class="infoTitle"><i class="far fa-clock"></i>&nbsp;&nbsp;<span><?php echo $day . $month ?> @ <?php echo $time;?></span></span>
+                <span class="infoTitle"><i class="far fa-clock"></i>&nbsp;&nbsp;<span><?php echo $day . " " . $month ?> @ <?php echo $time;?></span></span>
             </div>
             <h2>Line Up<hr></h2>
             <span class="lineup"><?php echo $lineup?></span>

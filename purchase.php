@@ -1,5 +1,8 @@
 <?php
-    
+    include('session.php');
+    require_once('connection.php');
+    db();
+    global $link;
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +22,7 @@
         <a href="PHP HERE" class="navItem"><h2>Concerts</h2></a>
         <a href="PHP HERE" class="navItem"><h2>Events</h2></a>
         <a href="PHP HERE" class="navItem"><h2>Festivals</h2></a>
+        <a href="profile.php" class="navItem"><h2>Profile</h2></a>
 
         <span class="searchBar"><i class="fas fa-search"></i> Search Events</span>
 

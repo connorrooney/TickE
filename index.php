@@ -1,4 +1,13 @@
-<?php require_once("connection.php"); ?>
+<?php 
+require_once("connection.php"); 
+    if($loginSesh) {
+        $status = "log out";
+        $statusLink = "logout.php";
+    } else {
+        $status = "login";
+        $statusLink = "login.php";
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,10 +26,11 @@
         <a href="PHP HERE" class="navItem"><h2>Concerts</h2></a>
         <a href="PHP HERE" class="navItem"><h2>Events</h2></a>
         <a href="PHP HERE" class="navItem"><h2>Festivals</h2></a>
+        <a href="profile.php" class="navItem"><h2>Profile</h2></a>
 
         <span class="searchBar"><i class="fas fa-search"></i> Search Events</span>
 
-        <a href="login.php"><button class="loginButton">login</button></a>
+        <a href="<?php echo $statusLink;?>"><button class="loginButton"><?php echo $status;?></button></a>
     </div>
     <div class="mainCont">
 
