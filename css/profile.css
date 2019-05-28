@@ -35,6 +35,7 @@
     grid-template-columns: 0.3fr 1.3fr 0.2fr;
     grid-template-rows: 1fr;
     grid-template-areas: "img info link";
+    margin-bottom: 7px;
 }
     .ticket img {
         border-right: 3px solid #ffffff;

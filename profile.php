@@ -1,5 +1,16 @@
 <?php
     include('session.php');
+    require_once('connection.php');
+    db();
+    global $link;
+
+    if($_POST['creditSumbit']) {
+        $cResult = mysqli_query($link, "SELECT credit FROM users WHERE username = '$loginSesh'");
+        $cRow = mysqli_fetch_array($cResult);
+        $currentCredit = $cRow['credit'];
+        $newCredit = $currentCredit + $_POST['creditAmmount'];
+        mysqli_query($link, "UPDATE users SET credit = '$newCredit' WHERE username = '$loginSesh'");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -28,24 +39,50 @@
     <div class="profileCont">
         <div class="myTickets">
             <h1>My Tickets<hr></h1>
-
+            <?php
+                $query = "SELECT * FROM users WHERE username = '$loginSesh'";
+                $result = mysqli_query($link, $query);
+                if(mysqli_num_rows($result) == 1) {
+                    $row = mysqli_fetch_array($result);
+                    $credit = $row['credit'];
+                    $tickets = json_decode($row['tickets']);
+                    for($i = 0; $i < count($tickets); $i++ ) {
+                        $tQuery = "SELECT * FROM events WHERE id = '$tickets[$i]'";
+                        $tResult = mysqli_query($link, $tQuery);
+                        if(mysqli_num_rows($tResult) == 1) {
+                            while($tRow = mysqli_fetch_array($tResult)) {
+                                $id = $tRow['id'];
+                                $name = $tRow['name'];
+                                $location = $tRow['location'];
+                                $address = $tRow['address'];
+                                $day = $tRow['day'];
+                                $month = $tRow['month'];
+                                $time = $tRow['time'];
+                                $img = $tRow['img'];
+                                ?>
             <div class="ticket">
-                <img src="img/eventsNear/easylife.jpg">
+                <img src="<?php echo $img;?>">
                 <div class="ticketInfo">
-                    <h2>Easy Life</h2>
-                    <span>Xxxxxxxxxxxx, Xxxxxxxxxxxx</span>
+                    <h2><?php echo $name;?></h2>
+                    <span><?php echo $address . ", " . $location;?></span><br>
+                    <span><?php echo $day . " " . $month . " @ " . $time;?>
                 </div>
                 <div class="ticketLink">
-                    <a href="" ><button class="moreInfo">View</button></a>
+                    <a href="detail.php?id=<?php echo $id?>"><button class="moreInfo">View</button></a>
                 </div>
             </div>
-
+            <?php
+                            }
+                        }
+                    }
+                }
+            ?>
         </div>
         <div class="addCredit">
             <center>
             <h1>Welcome <?php echo $loginSesh;?>
             <h1>Credit Overview</h1>
-            <h1><i class="far fa-credit-card"></i> £78.40</h1>
+            <h1><i class="far fa-credit-card"></i> £<?php echo $credit;?></h1>
 
             <form action="" method="POST">
                 <label>Credit Ammount:</label><br>
