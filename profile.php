@@ -34,7 +34,7 @@
 
         <span class="searchBar"><i class="fas fa-search"></i> Search Events</span>
 
-        <button class="loginButton">log out</button>
+        <a href="logout.php"><button class="loginButton">log out</button></a>
     </div>
     <div class="profileCont">
         <div class="myTickets">
