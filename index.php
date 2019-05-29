@@ -1,6 +1,7 @@
 <?php 
 require_once("connection.php"); 
-    if($loginSesh) {
+session_start();
+    if(isset($_SESSION['username'])) {
         $status = "log out";
         $statusLink = "logout.php";
     } else {
