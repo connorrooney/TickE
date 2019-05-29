@@ -49,10 +49,10 @@
         <div class="loginForm">
             <img src="img/logosquare.svg">
             <form method="POST" action="login.php">
-                <label>Username:</label> <br>
+                <label>Username:</label><br>
                 <input type="text" placeholder="Username" name="loginUsername" required><br>
 
-                <label>Password:</label> <br>
+                <label>Password:</label><br>
                 <input type="password" placeholder="Password" name="loginPassword" required><br><br>
 
                 <center><input class="loginButtonSubmit" type="submit" name="loginButton" value="login"></center>
